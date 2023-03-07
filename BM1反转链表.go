@@ -7,15 +7,19 @@ type listNode struct {
 	Next *listNode
 }
 
+type listNode1 struct {
+	Val  int
+	Next *listNode
+}
+
 func reversList(head *listNode) *listNode {
 	var prev *listNode
 	curl := head
-
 	if curl == nil {
 		fmt.Println("空链表")
 	}
 
-	if curl != nil {
+	for curl != nil {
 		temp := curl.Next
 		curl.Next = prev
 		prev = curl
@@ -26,10 +30,13 @@ func reversList(head *listNode) *listNode {
 }
 
 func main() {
+
 	head := &listNode{}
 	head.Val = 1
+
 	ln2 := &listNode{}
 	ln2.Val = 2
+
 	ln3 := &listNode{}
 	ln3.Val = 3
 
@@ -37,8 +44,9 @@ func main() {
 	ln2.Next = ln3
 
 	prev := reversList(head)
+
 	for prev != nil {
-		fmt.Println(*prev)
+		fmt.Println("---val--", prev.Val)
 		prev = prev.Next //移动指针
 	}
 }
