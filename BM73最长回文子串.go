@@ -1,23 +1,21 @@
 package main
 
-func hasCylcle(str string) string {
-	l := 0
-	
+func hasCycleStr(str string) string {
+	max := 0
 	for i := 0; i < len(str); i++ {
-		for j := i + 1; j < len(str)-1; j++ {
+		for j := i + 1; j < len(str); j++ {
 			v := hasCycleValue(str[i:j])
-			if v > l {
-				l = v
+			if v > max {
+				max = v
 			}
 		}
 	}
-
 	return ""
 }
 
 func hasCycleValue(num string) int {
 	for i := 0; i < len(num)/2; i++ {
-		if num[i] != num[len(num)-i] {
+		if num[i] != num[len(num)-1-i] {
 			return 0
 		}
 	}
@@ -25,6 +23,6 @@ func hasCycleValue(num string) int {
 }
 
 func main() {
-	str := "adddddda"
-	hasCylcle(str)
+	str := "aadddda"
+	hasCycleStr(str)
 }

@@ -20,5 +20,4 @@ func twoSum(nums []int, target int) []int {
 func main() {
 	nums := []int{3, 5, 6}
 	twoSum(nums, 9)
-
 }

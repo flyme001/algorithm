@@ -1,18 +1,20 @@
 package main
 
-func slid(nums []int, index int) []int {
-	res := []int{}
+func slid(nums []int, index int) int {
+	max := 0
 
 	if len(nums) == 0 {
-		return []int{}
+		return 0
 	}
 
-	for i := 0; i < len(nums); i++ {
-		max := getMax(nums[i : index+i])
-		res = append(res, max)
+	for i := 0; i < len(nums)-3; i++ {
+		val := getMax(nums[i : index+i])
+		if max < val {
+			max = val
+		}
 	}
 
-	return res
+	return max
 }
 
 func getMax(nums []int) int {

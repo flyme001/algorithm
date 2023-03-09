@@ -1,7 +1,5 @@
 package main
 
-import "strings"
-
 func match(str1, str2 string) {
 	str := []string{}
 	for i := 0; i < len(str1); i++ {
@@ -17,7 +15,9 @@ func match(str1, str2 string) {
 
 func matchStr(str, str2 string) {
 	for i := 0; i < len(str2); i++ {
-		if str2[i] == str[i]
+		if str2[i] == str[i] {
+
+		}
 	}
 }
 

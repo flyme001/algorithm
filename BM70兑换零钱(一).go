@@ -12,14 +12,17 @@ func minMoney(arr []int, money int) int {
 
 	sort.Ints(arr)
 
-	if money/arr[0] > 0 {
-		if money%arr[0] == 0 {
-			m = money / arr[0]
-		}
+	if money/arr[0] > 0 && money%arr[0] == 0 {
+		m = money / arr[0]
+		return m
 	}
 
-	temp := money - arr[0]
+	temp := money - arr[0]*m
 	for i := 1; i < len(arr); i++ {
+		if temp < arr[i] {
+			continue
+		}
+		
 		if temp == arr[i] {
 			m = m + 1
 		} else {
