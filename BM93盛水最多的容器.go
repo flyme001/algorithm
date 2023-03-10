@@ -9,4 +9,5 @@ func moreWater(num []int) int {
 			return num[len(num)-1-i] * num[len(num)-1-i]
 		}
 	}
+	return 0
 }
