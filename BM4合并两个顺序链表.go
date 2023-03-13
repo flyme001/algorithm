@@ -5,27 +5,33 @@ type node struct {
 	Next *node
 }
 
-func mergeNodeList(head1 *node, head2 *node) {
-	head := &node{}
-	curl := head
-
+func mergeNodeList(head1 *node, head2 *node) *node {
 	if head1 == nil {
-		curl.Next = head2
+		return head2
 	}
 	if head2 == nil {
-		curl.Next = head1
+		return head1
 	}
 
+	var pre *node
 	for head1 != nil && head2 != nil {
 		if head1.Val < head2.Val {
-			curl.Next = head1
+			pre.Next = head1
 			head1 = head1.Next
 		} else {
-			curl.Next = head2
+			pre.Next = head2
 			head2 = head2.Next
 		}
-		curl = curl.Next
+		pre = pre.Next
 	}
+
+	//另外一种是出现a链表比b链表大所以就是后面没有比较的链表直接挂到a后面即可
+	if head1 != nil {
+		pre.Next = head1
+	} else {
+		pre.Next = head2
+	}
+	return pre
 }
 
 func main() {

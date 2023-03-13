@@ -10,14 +10,16 @@ func deleteNodeList(head1 *deleteNode) *deleteNode {
 		return nil
 	}
 
-	slow, fast := head1, head1.Next
-	for head1 != nil {
-		if slow.Val == fast.Val {
-			slow.Next = fast
+	curl := head1
+	for curl != nil {
+		if curl.Val == curl.Next.Val {
+			curl.Next = curl.Next.Next
+		} else {
+			curl = curl.Next
 		}
 	}
 
-	return slow
+	return curl
 }
 
 func main() {

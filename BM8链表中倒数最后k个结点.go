@@ -15,6 +15,7 @@ func FindKthToTail(head *endNode, k int) *endNode {
 	fast := head
 	slow := head
 
+	// 先快指针先跑k个节点 然后在让快慢指针一起跑就可以了
 	for k > 0 {
 		fast = fast.Next
 		k = k - 1

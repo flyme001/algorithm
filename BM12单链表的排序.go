@@ -1,5 +1,6 @@
 package main
 
+//https://mojotv.cn/algorithm/golang-quick-sort
 type sortNode struct {
 	Val  int
 	Next *sortNode
@@ -10,6 +11,20 @@ func sortNodeList(head *sortNode) {
 		return
 	}
 
+	//for h := head; h.Next != nil; h = h.Next {
+	//	min := h
+	//	for p := h; p != nil; p = p.Next{
+	//		if p.Val < min.Val {
+	//			min = p
+	//		}
+	//	}
+	//
+	//	temp := min.Val
+	//	min.Val = h.Val
+	//	h.Val = temp
+	//
+	//}
+	//
 	for h := head; h.Next != nil; h = h.Next {
 		min := h
 		for p := h; p != nil; p = p.Next {
@@ -17,7 +32,7 @@ func sortNodeList(head *sortNode) {
 				min = p
 			}
 		}
-		
+
 		tmp := min.Val
 		min.Val = h.Val
 		h.Val = tmp

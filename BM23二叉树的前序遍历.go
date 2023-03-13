@@ -1,12 +1,17 @@
 package main
 
+// 前序遍历：根结点 ---> 左子树 ---> 右子树
+//
+// 中序遍历：左子树---> 根结点 ---> 右子树
+//
+// 后序遍历：左子树 ---> 右子树 ---> 根结点
 type treeNode struct {
 	Value     int
 	LeftNode  *treeNode
 	RightNode *treeNode
 }
 
-//根节点
+// 根节点
 var rootNode *treeNode = &treeNode{
 	Value: 1,
 	LeftNode: &treeNode{

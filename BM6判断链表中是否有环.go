@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type cycleNode1 struct {
 	Val  int
 	Next *cycleNode1
@@ -9,19 +7,17 @@ type cycleNode1 struct {
 
 func hasCycle(head *cycleNode1) bool {
 	if head == nil {
-		fmt.Println("---空链表--")
+		return false
 	}
 	fast := head
 	slow := head
-
-	if fast != nil && fast.Next != nil {
+	for slow.Next != nil && fast.Next.Next != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
 		if fast.Val == slow.Val {
 			return true
 		}
 	}
-
 	return false
 
 }
